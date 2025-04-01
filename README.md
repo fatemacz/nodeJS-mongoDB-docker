@@ -138,7 +138,7 @@ The docker run command creates and runs a new container. The arguments are as fo
 mongosh mongodb://localhost:27017/testDB
 ```
 
-You will see some output from the database server, and at the end, we get a shell running on our selected database, as can be seen by the ch2> prompt. Here, we can enter commands to be executed on our database. Interestingly, MongoDB, like Node.js, also exposes a JavaScript
+You will see some output from the database server, and at the end, we get a shell running on our selected database, as can be seen by the testDB> prompt. Here, we can enter commands to be executed on our database. Interestingly, MongoDB, like Node.js, also exposes a JavaScript
 engine, but with yet another different environment. So, we can run JavaScript code, such as the following:
 
 ```
@@ -336,7 +336,7 @@ The MongoDB extension is very useful for debugging our database, as it lets us v
 
 We are now going to create a new web server that, instead of returning users from a JSON file, returns the list of users from our previously created users collection:
 
-- In the ch2 folder, open a Terminal. Install the mongodb package, which contains the official MongoDB driver for Node.js:
+- In the testDB folder, open a Terminal. Install the mongodb package, which contains the official MongoDB driver for Node.js:
 
 ```
 npm install mongodb@6.15.0
