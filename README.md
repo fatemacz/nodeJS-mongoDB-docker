@@ -1,3 +1,7 @@
+# Download the zip and rename the project
+
+https://github.com/fatemacz/vite-react-eslint-prettier-husky/archive/refs/heads/main.zip
+
 # The Docker platform
 
 The Docker platform essentially consists of three parts:
