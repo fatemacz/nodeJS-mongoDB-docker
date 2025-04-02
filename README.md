@@ -2,6 +2,46 @@
 
 https://github.com/fatemacz/vite-react-eslint-prettier-husky/archive/refs/heads/main.zip
 
+- rename the project in package.json
+
+```
+{
+    "name": your-project-name,
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    ...
+}
+```
+
+# Install husky, eslint, lint-staged, and prettier and their dependencies
+
+npm install --save-dev husky eslint prettier lint-staged eslint-config-prettier eslint-plugin-prettier eslint-plugin-react
+
+# Run following command in your terminal to setup Husky
+
+```
+    npx husky init
+```
+
+- This will create a .husky folder, with a pre-commit file that runs on every commit we make. There will be an “npm test” code in the pre-commit file. Since we don’t have any test, let us replace it to run our lint-staged.
+
+```
+    npx lint-staged
+```
+
+# Run npm run prepare to set up the hooks in husky
+
+```
+    npm run prepare
+```
+
+# Create commit-msg file under .husky folder and add the line below to add a commit-msg hook to Husky:
+
+```
+    npx commitlint --edit "$1"
+```
+
 # The Docker platform
 
 The Docker platform essentially consists of three parts:
@@ -41,10 +81,10 @@ docker run -i -t ubuntu:24.04 /bin/bash
 ```
 
 - The docker run command does the following:
-  - If you have never run a container based on the ubuntu image before, Docker will start by pulling the image from the Docker registry (this is equivalent to executing docker pull ubuntu).
-  - After the image is downloaded, Docker creates a new container (the equivalent to executing docker container create).
-  - Then, Docker configures a read-write filesystem for the container and creates a default network interface.
-  - Finally, Docker starts the container and executes the specified command. In our case, we specified the /bin/bash command. Because we passed the -i (keeps STDIN open) and -t (allocates a pseudo-tty) options, Docker attaches the container’s shell to our currently running Terminal, allowing us to use the container as if we were directly accessing a Terminal on our host machine.
+    - If you have never run a container based on the ubuntu image before, Docker will start by pulling the image from the Docker registry (this is equivalent to executing docker pull ubuntu).
+    - After the image is downloaded, Docker creates a new container (the equivalent to executing docker container create).
+    - Then, Docker configures a read-write filesystem for the container and creates a default network interface.
+    - Finally, Docker starts the container and executes the specified command. In our case, we specified the /bin/bash command. Because we passed the -i (keeps STDIN open) and -t (allocates a pseudo-tty) options, Docker attaches the container’s shell to our currently running Terminal, allowing us to use the container as if we were directly accessing a Terminal on our host machine.
 
 As we can see, Docker is very useful for creating self-contained environments for our apps and services to run in. Later in this book, we are going to learn how to package our own apps in Docker containers. For now, we are only going to use Docker to run services without having to install them on our host system
 
@@ -83,10 +123,10 @@ The following figure shows the result of running these commands:
 MongoDB, at the time of writing, is the most popular NoSQL database. Unlike Structured Query Language (SQL) databases (such as MySQL or PostgreSQL), NoSQL means that the database specifically does not use SQL to query the database. Instead, NoSQL databases have various other ways to query the database and often have a vastly different structure of how data is stored and queried.
 
 - The following main types of NoSQL databases exist:
-  - Key-value stores (for example, Valkey/Redis)
-  - Column-oriented databases (for example, Amazon Redshift)
-  - Graph-based databases (for example, Neo4j)
-  - Document-based databases (for example, MongoDB)
+    - Key-value stores (for example, Valkey/Redis)
+    - Column-oriented databases (for example, Amazon Redshift)
+    - Graph-based databases (for example, Neo4j)
+    - Document-based databases (for example, MongoDB)
 
 MongoDB is a document-based database, which means that each entry in the database is stored as a document. In MongoDB, these documents are basically JSON objects (internally, they are stored as BSON – a binary JSON format to save space and improve performance, among other advantages). Instead, SQL databases store data as rows in tables. As such, MongoDB provides a lot more flexibility. Fields can be freely added or left out in documents. The downside of such a structure is that we do
 not have a consistent schema for documents.
@@ -217,8 +257,8 @@ As we can see, MongoDB automatically created a unique ID (ObjectId) for our docu
 -     - The first 4 bytes are a timestamp, representing the creation of the ID measured in seconds since the Unix epoch
       - The next 5 bytes are a random value unique to the machine and currently running database process
       - The last 3 bytes are a randomly initialized incrementing counter
-  Note: The way ObjectId identifiers are generated in MongoDB ensures that IDs are unique, avoiding ID collisions even when two ids are generated at the same time from different instances, without requiring a form of communication between the instances, which would slow down the creation
-  of documents when scaling the database.
+    Note: The way ObjectId identifiers are generated in MongoDB ensures that IDs are unique, avoiding ID collisions even when two ids are generated at the same time from different instances, without requiring a form of communication between the instances, which would slow down the creation
+    of documents when scaling the database.
 
 # Querying and sorting documents
 
