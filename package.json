@@ -16,6 +16,12 @@
     ],
     "src/**/*.(json|css|scss|md)|.(babelrc|prettierrc|eslint.js|tsconfig.json)": [
       "prettier --write"
+    ],
+    "backend/**/*.(ts|tsx|js|jsx)": [
+      "prettier --write"
+    ],
+    "backend/**/*.(json|css|scss|md)|.(babelrc|prettierrc|eslint.js|tsconfig.json)": [
+      "prettier --write"
     ]
   },
   "husky": {
